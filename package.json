@@ -1,0 +1,52 @@
+{
+  "name": "remotion-client-render",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mediabunny/aac-encoder": "^1.39.2",
+    "@remotion/gif": "4.0.436",
+    "@remotion/media": "4.0.436",
+    "@remotion/media-utils": "4.0.436",
+    "@remotion/player": "4.0.436",
+    "@remotion/preload": "4.0.436",
+    "@remotion/shapes": "4.0.436",
+    "@remotion/web-renderer": "4.0.436",
+    "jotai": "^2.6.0",
+    "lodash": "^4.17.21",
+    "mediabunny": "^1.39.2",
+    "nanoid": "^3.3.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remotion": "4.0.436"
+  },
+  "resolutions": {
+    "@types/react": "18.2.79",
+    "@types/react-dom": "18.2.25",
+    "remotion": "4.0.436",
+    "@remotion/gif": "4.0.436",
+    "@remotion/media-utils": "4.0.436",
+    "@remotion/player": "4.0.436",
+    "@remotion/preload": "4.0.436",
+    "@remotion/shapes": "4.0.436"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/react": "~18.2.0",
+    "@types/react-dom": "~18.2.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vite-plugin-svgr": "^4.5.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

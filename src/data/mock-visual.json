@@ -1,0 +1,1134 @@
+{
+  "dimensions": {
+    "height": 1080,
+    "id": 1,
+    "scaleFactor": 1,
+    "scaledHeight": 1080,
+    "scaledWidth": 1920,
+    "width": 1920
+  },
+  "durationInFrames": 496,
+  "fps": 30,
+  "metadata": {
+    "source": "WEB_EDITOR"
+  },
+  "multiAudio": [
+    {
+      "audioDurationInFrames": 496,
+      "audioEndFrame": 496,
+      "audioName": "Happy Days",
+      "audioStartDelay": 0,
+      "audioStartFrame": 0,
+      "id": "x1hCnQMD4JDsyyMFF4c_Y",
+      "modulations": [],
+      "type": "AUDIO",
+      "url": "https://stg.trypncl.com/preprod/23050/a01586f2-1add-499b-a9a9-bafe20fcdf11.mp3",
+      "volume": 0.5
+    }
+  ],
+  "revisionTimestamp": 1773734766616,
+  "scenes": [
+    {
+      "canvasBgColor": "rgb(249, 249, 251)",
+      "durationInFrames": 406,
+      "endFrame": 405,
+      "id": "3xE6YkY5Oj6vmecZstGKE",
+      "layers": [
+        {
+          "durationInFrames": 302,
+          "endFrame": 301,
+          "height": 2560,
+          "hidden": false,
+          "id": "Vci7zbfW5hEGVsOOBG3yD",
+          "layerNumber": 1,
+          "layerRenditions": {
+            "original": {
+              "scaleFactor": 1,
+              "url": "https://cms.trypncl.com/prd/uploads/39049/219693c9-e5f0-4c27-829a-425d3423ce17.mp4"
+            }
+          },
+          "layerType": "video",
+          "left": -1.019444,
+          "name": "enhanced -Seagull.mp4",
+          "opacity": 1,
+          "origHeight": 2560,
+          "origUrl": "https://cms.trypncl.com/prd/uploads/39049/219693c9-e5f0-4c27-829a-425d3423ce17/WEBM/219693c9-e5f0-4c27-829a-425d3423ce17_webm.webm",
+          "origWidth": 1440,
+          "playbackRate": 1,
+          "rotate": 0,
+          "scaleX": 0.7067237097813833,
+          "scaleY": 0.7067237097813837,
+          "startFrame": 0,
+          "thumbnailUrl": "",
+          "top": -303.0839264,
+          "type": "video",
+          "url": "https://cms.trypncl.com/prd/uploads/39049/219693c9-e5f0-4c27-829a-425d3423ce17/WEBM/219693c9-e5f0-4c27-829a-425d3423ce17_webm.webm",
+          "version": "4.0",
+          "videoDurationInSecs": 10.083333,
+          "videoEndTime": 302,
+          "videoStartTime": 0,
+          "volume": 0,
+          "width": 1440
+        },
+        {
+          "color": "rgb(255, 201, 201)",
+          "durationInFrames": 302,
+          "endFrame": 301,
+          "height": 1080,
+          "hidden": false,
+          "horizontalAlign": "right",
+          "id": "i-9vYaaXQixfuG65UdyUM",
+          "isLock": true,
+          "layerNumber": 5,
+          "layerType": "shape",
+          "left": 1000,
+          "name": "Copy Background",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 0,
+          "top": 0,
+          "type": "shape",
+          "version": "4.0",
+          "verticalAlign": "bottom",
+          "width": 920
+        },
+        {
+          "autofit": false,
+          "charSpacing": 0.5,
+          "durationInFrames": 302,
+          "endFrame": 301,
+          "fontFamily": "BarclaysEffra-Regular",
+          "fontSize": 22,
+          "height": 62,
+          "hidden": false,
+          "id": "puwve5qnnFlP5wKOJqScV",
+          "layerNumber": 1,
+          "layerType": "fineprint",
+          "left": 1100,
+          "lineHeight": 1,
+          "name": "fineprint_2",
+          "opacity": 1,
+          "origHeight": 0,
+          "origWidth": 100,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 0,
+          "text": "This is fineprint text used to put in details which are mandatories",
+          "textColor": "rgb(117, 33, 87)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 500,
+          "type": "text",
+          "version": "5.0",
+          "width": 542
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "cubicBezier(0.25, 1, 0.30, 1)",
+                  "opacity": [
+                    {
+                      "id": "_73BcuMYWPHbtWaLzWbA_",
+                      "timestamp": 2633.3333333333335,
+                      "value": 1
+                    },
+                    {
+                      "id": "PtCCk_DPuvthHqaP_D_O1",
+                      "timestamp": 3233.3333333333335,
+                      "value": 0
+                    }
+                  ],
+                  "rotate": [],
+                  "scaleX": [],
+                  "scaleY": [],
+                  "translateX": [
+                    {
+                      "id": "0GAnfEtFTYEZhtRRp_VKV",
+                      "timestamp": 0,
+                      "value": 0
+                    },
+                    {
+                      "id": "KubeVuRyWVqfg9y683h7E",
+                      "timestamp": 2633.3333333333335,
+                      "value": 0
+                    },
+                    {
+                      "id": "bsCKUi4xD-1WOrfPukxkP",
+                      "timestamp": 3633.3333333333335,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "Hwz9pymYzNJ4gVXWuSd9D",
+                      "timestamp": 0,
+                      "value": 0
+                    },
+                    {
+                      "id": "2vfRx3AjaImsUshQmoPEF",
+                      "timestamp": 2633.3333333333335,
+                      "value": -1
+                    },
+                    {
+                      "id": "G4a2v4yrNtKqJdZKezQFy",
+                      "timestamp": 3633.3333333333335,
+                      "value": -21
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "direction": "up",
+            "duration": 1,
+            "name": "Custom",
+            "state": "enter",
+            "version": "v3"
+          },
+          "autofit": false,
+          "charSpacing": 0,
+          "durationInFrames": 99,
+          "endFrame": 98,
+          "fontFamily": "BarclaysEffra-Bold",
+          "fontSize": 62,
+          "height": 319,
+          "hidden": false,
+          "htmlText": "<p class=\"pencil-editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Headline 1 Headline 1 Headline 1 Headline 1</span></p>",
+          "id": "813TTYipKT2mthWoQYuuU",
+          "isLexicalDirty": false,
+          "isLock": false,
+          "layerNumber": 1,
+          "layerType": "headline",
+          "left": 1100,
+          "lineHeight": 1,
+          "name": "headline_2",
+          "opacity": 1,
+          "origHeight": 0,
+          "origWidth": 500,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "secondaryAnimation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "cubicBezier(0.25, 1, 0.30, 1)",
+                  "opacity": [
+                    {
+                      "timestamp": 2333.3333333333335,
+                      "value": 1
+                    },
+                    {
+                      "timestamp": 2933.3333333333335,
+                      "value": 0
+                    }
+                  ],
+                  "translateX": [
+                    {
+                      "timestamp": 2333.3333333333335,
+                      "value": 0
+                    },
+                    {
+                      "timestamp": 3333.3333333333335,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "timestamp": 2333.3333333333335,
+                      "value": 0
+                    },
+                    {
+                      "timestamp": 3333.3333333333335,
+                      "value": -1080
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "delay": 0,
+            "direction": "up",
+            "duration": 1,
+            "name": "Rise",
+            "state": "exit",
+            "version": "v3"
+          },
+          "startFrame": 0,
+          "text": "Headline 1 Headline 1 Headline 1 Headline 1",
+          "textColor": "rgb(117, 33, 87)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 231,
+          "type": "text",
+          "version": "5.0",
+          "width": 409
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "cubicBezier(0.25, 1, 0.30, 1)",
+                  "opacity": [
+                    {
+                      "id": "Y4Mg5MLAsnc0IW1EsDvxl",
+                      "timestamp": 3333.333333333333,
+                      "value": 0
+                    },
+                    {
+                      "id": "8k_CgkgpkwCRn7SyYu00v",
+                      "timestamp": 3933.333333333333,
+                      "value": 1
+                    },
+                    {
+                      "id": "_73BcuMYWPHbtWaLzWbA_",
+                      "timestamp": 6033.333333333334,
+                      "value": 1
+                    },
+                    {
+                      "id": "PtCCk_DPuvthHqaP_D_O1",
+                      "timestamp": 6633.333333333334,
+                      "value": 0
+                    }
+                  ],
+                  "rotate": [],
+                  "scaleX": [],
+                  "scaleY": [],
+                  "translateX": [
+                    {
+                      "id": "tuNJ7jUB-P4dkISYCg8qG",
+                      "timestamp": 3200,
+                      "value": 0
+                    },
+                    {
+                      "id": "R6LH3vbkcMc6u9QJWirAU",
+                      "timestamp": 4200,
+                      "value": 0
+                    },
+                    {
+                      "id": "KubeVuRyWVqfg9y683h7E",
+                      "timestamp": 6033.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "bsCKUi4xD-1WOrfPukxkP",
+                      "timestamp": 7033.333333333334,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "mSDVIabP1OUgroo6acN7e",
+                      "timestamp": 3200,
+                      "value": 0
+                    },
+                    {
+                      "id": "78J_LvfznIDI0vAugEkj6",
+                      "timestamp": 4200,
+                      "value": -20
+                    },
+                    {
+                      "id": "2vfRx3AjaImsUshQmoPEF",
+                      "timestamp": 6033.333333333334,
+                      "value": -20
+                    },
+                    {
+                      "id": "G4a2v4yrNtKqJdZKezQFy",
+                      "timestamp": 7033.333333333334,
+                      "value": -40
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "direction": "up",
+            "duration": 1,
+            "name": "Custom",
+            "state": "enter",
+            "version": "v3"
+          },
+          "autofit": false,
+          "charSpacing": 0,
+          "durationInFrames": 103,
+          "endFrame": 200,
+          "fontFamily": "BarclaysEffra-Bold",
+          "fontSize": 62,
+          "height": 319,
+          "hidden": false,
+          "horizontalAlign": "left",
+          "htmlText": "<p class=\"pencil-editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Headline 2 Headline 2 Headline 2 Headline 2</span></p>",
+          "id": "qsYBnyc0vOgvCiBUk2rGB",
+          "isLexicalDirty": false,
+          "layerNumber": 2,
+          "layerType": "headline",
+          "left": 1100,
+          "lineHeight": 1,
+          "name": "headline_3",
+          "opacity": 1,
+          "origHeight": 0,
+          "origWidth": 500,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 98,
+          "text": "Headline 2 Headline 2 Headline 2 Headline 2",
+          "textColor": "rgb(117, 33, 87)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 250,
+          "type": "text",
+          "version": "5.0",
+          "width": 409
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "cubicBezier(0.25, 1, 0.30, 1)",
+                  "opacity": [
+                    {
+                      "id": "Y4Mg5MLAsnc0IW1EsDvxl",
+                      "timestamp": 6633.333333333333,
+                      "value": 0
+                    },
+                    {
+                      "id": "8k_CgkgpkwCRn7SyYu00v",
+                      "timestamp": 7233.333333333333,
+                      "value": 1
+                    }
+                  ],
+                  "rotate": [],
+                  "scaleX": [],
+                  "scaleY": [],
+                  "translateX": [
+                    {
+                      "id": "tuNJ7jUB-P4dkISYCg8qG",
+                      "timestamp": 6500,
+                      "value": 0
+                    },
+                    {
+                      "id": "R6LH3vbkcMc6u9QJWirAU",
+                      "timestamp": 7500,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "mSDVIabP1OUgroo6acN7e",
+                      "timestamp": 6500,
+                      "value": 0
+                    },
+                    {
+                      "id": "78J_LvfznIDI0vAugEkj6",
+                      "timestamp": 7500,
+                      "value": -20
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "direction": "up",
+            "duration": 1,
+            "name": "Custom",
+            "state": "enter",
+            "version": "v3"
+          },
+          "autofit": false,
+          "charSpacing": 0,
+          "durationInFrames": 102,
+          "endFrame": 301,
+          "fontFamily": "BarclaysEffra-Bold",
+          "fontSize": 62,
+          "height": 319,
+          "hidden": false,
+          "htmlText": "<p class=\"pencil-editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Headline 3 Headline 3 Headline 3 Headline 3</span></p>",
+          "id": "iflc6eMq0sof2pfJZahLW",
+          "isLexicalDirty": false,
+          "layerNumber": 3,
+          "layerType": "headline",
+          "left": 1100,
+          "lineHeight": 1,
+          "name": "headline_4",
+          "opacity": 1,
+          "origHeight": 0,
+          "origWidth": 500,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 200,
+          "text": "Headline 3 Headline 3 Headline 3 Headline 3",
+          "textColor": "rgb(117, 33, 87)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 250,
+          "type": "text",
+          "version": "5.0",
+          "width": 409
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeOutQuad",
+                  "opacity": [
+                    {
+                      "id": "6BZzJzvdQYgPQIeZwsMon",
+                      "timestamp": 9966.666666666666,
+                      "value": 1
+                    }
+                  ],
+                  "translateX": [
+                    {
+                      "id": "OVhoOtUuL8I_UFi5Pcmy0",
+                      "timestamp": 9433.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "xQ2uFyN_Tw-inLqOhBMap",
+                      "timestamp": 10033.333333333334,
+                      "value": -1
+                    },
+                    {
+                      "id": "YbstuPlbGYuXS6EagFCY8",
+                      "timestamp": 10800,
+                      "value": -1
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "rfYBkyj1G4zPol0V1k6mT",
+                      "timestamp": 9433.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "_PIvxh4LIQ3MJx9o-IwfD",
+                      "timestamp": 10033.333333333334,
+                      "value": -1080
+                    },
+                    {
+                      "id": "fWOpCCrm4yASWJFzrySrW",
+                      "timestamp": 10800,
+                      "value": -1079.2215282
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "color": "rgb(175, 253, 253)",
+          "durationInFrames": 126,
+          "endFrame": 405,
+          "height": 1080,
+          "hidden": false,
+          "id": "ER8Z2umdX5m3mis2H_b2F",
+          "layerNumber": 6,
+          "layerType": "shape",
+          "left": 1,
+          "name": "shape_7",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 280,
+          "top": 1080,
+          "type": "shape",
+          "version": "4.0",
+          "width": 1920
+        },
+        {
+          "autofit": false,
+          "charSpacing": 0.5,
+          "durationInFrames": 119,
+          "endFrame": 405,
+          "fontFamily": "BarclaysEffra-Regular",
+          "fontSize": 22,
+          "height": 35,
+          "hidden": false,
+          "id": "SyhGD42RSheoEC8MKpOa_",
+          "layerNumber": 2,
+          "layerType": "fineprint",
+          "left": 1040,
+          "lineHeight": 1,
+          "name": "fineprint_3",
+          "opacity": 1,
+          "origHeight": 0,
+          "origWidth": 100,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 287,
+          "text": "This is fineprint text used to put in details which are mandatories",
+          "textColor": "rgb(0, 18, 118)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 568.0462988,
+          "type": "text",
+          "version": "5.0",
+          "width": 724
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeOutQuad",
+                  "opacity": [
+                    {
+                      "id": "GcwY_jWj2kI6bU2lNJRkB",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "66SKdIStWR6tz4CFK-nCB",
+                      "timestamp": 10733.333333333334,
+                      "value": 1
+                    }
+                  ],
+                  "translateX": [
+                    {
+                      "id": "zEJmVZpf0Y0nW1NI7fdej",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "bjrku1TWLeR47mJ6TsCKH",
+                      "timestamp": 10800,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "eCDjsrpcqbeM2kNYezDfs",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "Ec424dOy0S3oaCNqk_vwX",
+                      "timestamp": 10800,
+                      "value": -25
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "autofit": false,
+          "charSpacing": 0,
+          "durationInFrames": 113,
+          "endFrame": 405,
+          "fontFamily": "BarclaysEffra-Bold",
+          "fontSize": 62,
+          "height": 263,
+          "hidden": false,
+          "htmlText": "<p class=\"pencil-editor-paragraph\" dir=\"ltr\"><span style=\"white-space: pre-wrap;\">Headline 4 Headline 4 Headline 4 Headline 4</span></p>",
+          "id": "EPI2cXR2HcQccm_iE4Ste",
+          "isLexicalDirty": false,
+          "layerNumber": 4,
+          "layerType": "headline",
+          "left": 1040,
+          "lineHeight": 1,
+          "name": "headline_5",
+          "opacity": 0,
+          "origHeight": 0,
+          "origWidth": 500,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 293,
+          "text": "Headline 4 Headline 4 Headline 4 Headline 4",
+          "textColor": "rgb(0, 18, 118)",
+          "textHorzAlign": "left",
+          "textVertAlign": "top",
+          "top": 305,
+          "type": "text",
+          "version": "5.0",
+          "width": 437
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeOutQuad",
+                  "opacity": [
+                    {
+                      "id": "lUM_D2c_2xK07Og5xlEl5",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "zcdRFvnGzQ90f6axUAw4O",
+                      "timestamp": 10433.333333333334,
+                      "value": 1
+                    }
+                  ],
+                  "translateX": [
+                    {
+                      "id": "WLaLmSd_EhqCtbKOdQbfK",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "bKXn6yuYBELlqXotzVkxB",
+                      "timestamp": 10800,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "x6IugNb1DsOep29DrwPe2",
+                      "timestamp": 9833.333333333334,
+                      "value": 0
+                    },
+                    {
+                      "id": "p34g3FA87MuzPTezIK1SQ",
+                      "timestamp": 10800,
+                      "value": -15
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "direction": "up",
+            "duration": 1,
+            "name": "Custom",
+            "state": "enter",
+            "version": "v3"
+          },
+          "durationInFrames": 112,
+          "endFrame": 405,
+          "height": 673,
+          "hidden": false,
+          "id": "h6UCBy7UlISE7yp01EdLw",
+          "layerNumber": 3,
+          "layerRenditions": {
+            "original": {
+              "scaleFactor": 1,
+              "url": "https://cms.trypncl.com/prd/uploads/39049/7e1a02fe-a999-4b94-b02e-78763a27b047.png"
+            },
+            "webp": {
+              "scaleFactor": 1,
+              "url": "https://cms.trypncl.com/prd/uploads/39049/7e1a02fe-a999-4b94-b02e-78763a27b047.webp"
+            }
+          },
+          "layerType": "product",
+          "left": 475,
+          "name": "Card with DS.png",
+          "opacity": 1,
+          "orientation": "vertical",
+          "origHeight": 673,
+          "origUrl": "https://cms.trypncl.com/prd/uploads/39049/7e1a02fe-a999-4b94-b02e-78763a27b047.webp",
+          "origWidth": 465,
+          "rotate": 0,
+          "scaleX": 0.8023774145616642,
+          "scaleY": 0.8023774145616642,
+          "startFrame": 294,
+          "top": 175,
+          "type": "image",
+          "url": "https://cms.trypncl.com/prd/uploads/39049/7e1a02fe-a999-4b94-b02e-78763a27b047.webp",
+          "version": "4.0",
+          "verticalAlign": "middle",
+          "width": 465
+        },
+        {
+          "durationInFrames": 406,
+          "endFrame": 405,
+          "height": 300,
+          "hidden": false,
+          "id": "7Iq9FEOq4axGnSbWY_Ch7",
+          "isLock": true,
+          "layerNumber": 2,
+          "layerType": "product",
+          "left": 1767.432384158025,
+          "name": "primary eagle.png",
+          "opacity": 1,
+          "orientation": "square",
+          "origHeight": 300,
+          "origUrl": "https://cms.trypncl.com/39049/170c51f9-06fa-4708-9f1c-ff1ccfc77be2.webp",
+          "origWidth": 278,
+          "rotate": 0,
+          "scaleX": 0.3597122302158273,
+          "scaleY": 0.3597122302158273,
+          "startFrame": 0,
+          "top": 55.38823127765865,
+          "type": "image",
+          "url": "https://cms.trypncl.com/39049/170c51f9-06fa-4708-9f1c-ff1ccfc77be2.webp",
+          "version": "4.0",
+          "width": 278
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeInQuad",
+                  "translateX": [
+                    {
+                      "id": "lM1aoSAVU0nrqqqA2x9U3",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "rhbBzNsPA4wsEma7MS24x",
+                      "timestamp": 13500,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "TWaj4ARBFqsMOBCr3-nQs",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "EMBm-WEF70uxWXD6OUkii",
+                      "timestamp": 13500,
+                      "value": -540
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "color": "rgb(0, 183, 241)",
+          "durationInFrames": 33,
+          "endFrame": 405,
+          "height": 540,
+          "hidden": false,
+          "horizontalAlign": "centre",
+          "id": "i3zZO2Cg1Mrbw04zY16H0",
+          "isLock": true,
+          "layerNumber": 1,
+          "layerType": "shape",
+          "left": 0,
+          "name": "shape_2",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 373,
+          "top": 1080,
+          "type": "shape",
+          "version": "4.0",
+          "verticalAlign": "top",
+          "width": 1920
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeInQuad",
+                  "translateX": [
+                    {
+                      "id": "RTOAy1S3pYDmpYzyyp6Iw",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "2p6zWXVgS3m7ghWWZ3AVx",
+                      "timestamp": 13500,
+                      "value": 0
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "JWVhP2dWjThc5Jrjl0zOX",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "hxPC15xk_oOazWmB3Xyq0",
+                      "timestamp": 13500,
+                      "value": 540
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "color": "rgb(0, 183, 241)",
+          "durationInFrames": 34,
+          "endFrame": 405,
+          "height": 540,
+          "hidden": false,
+          "horizontalAlign": "centre",
+          "id": "bPhkmj4a24CExMdXLor_7",
+          "isLock": true,
+          "layerNumber": 2,
+          "layerType": "shape",
+          "left": 0,
+          "name": "shape_4",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 372,
+          "top": -540,
+          "type": "shape",
+          "version": "4.0",
+          "verticalAlign": "top",
+          "width": 1920
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeInQuad",
+                  "translateX": [
+                    {
+                      "id": "WaXD_MKcibQI1OR6sWaiV",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "KOQx4zztuUjApL1kTwWbw",
+                      "timestamp": 13500,
+                      "value": 960
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "Fqtpr6eyjXRZLaXnUyzxd",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "JYp4z-SXFHmJmtoqFt9Jv",
+                      "timestamp": 13500,
+                      "value": 0
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "color": "rgb(0, 183, 241)",
+          "durationInFrames": 33,
+          "endFrame": 405,
+          "height": 1080,
+          "hidden": false,
+          "horizontalAlign": "left",
+          "id": "L71CIcCqP4Unxd43d3gSJ",
+          "isLock": false,
+          "layerNumber": 3,
+          "layerType": "shape",
+          "left": -960,
+          "name": "shape_4",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 373,
+          "top": 0,
+          "type": "shape",
+          "version": "4.0",
+          "verticalAlign": "middle",
+          "width": 960
+        },
+        {
+          "animation": {
+            "configs": [
+              {
+                "keyframes": {
+                  "easing": "easeInQuad",
+                  "translateX": [
+                    {
+                      "id": "F0fetFkgABp76v21CLq0y",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "7xVWvk6eYzf3uscAflLLI",
+                      "timestamp": 13500,
+                      "value": -960
+                    }
+                  ],
+                  "translateY": [
+                    {
+                      "id": "OXFF4juDzZg5puNAax_Rx",
+                      "timestamp": 12433.333333333332,
+                      "value": 0
+                    },
+                    {
+                      "id": "W8guU-M-CVJeVxxMeMwk_",
+                      "timestamp": 13500,
+                      "value": 0
+                    }
+                  ]
+                },
+                "source": "anime_js_keyframes"
+              }
+            ],
+            "customAnimationId": null,
+            "delay": 0,
+            "duration": 1,
+            "name": "Custom",
+            "version": "v3"
+          },
+          "color": "rgb(0, 183, 241)",
+          "durationInFrames": 33,
+          "endFrame": 405,
+          "height": 1080,
+          "hidden": false,
+          "horizontalAlign": "right",
+          "id": "H594ex-9Dbq2oJsUiWFJr",
+          "isLock": true,
+          "layerNumber": 4,
+          "layerType": "shape",
+          "left": 1920,
+          "name": "shape_4",
+          "opacity": 1,
+          "origHeight": 250,
+          "origWidth": 250,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "shapeType": "rectangle",
+          "startFrame": 373,
+          "top": 0,
+          "type": "shape",
+          "version": "4.0",
+          "verticalAlign": "middle",
+          "width": 960
+        },
+        {
+          "durationInFrames": 406,
+          "endFrame": 405,
+          "height": 1080,
+          "hidden": false,
+          "id": "4QDfujjk8xckeEbjs3iQX",
+          "isLock": true,
+          "layerNumber": 1,
+          "layerType": "product",
+          "left": 0,
+          "name": "16x9 Video Pmax Safe Zone.png",
+          "opacity": 0.41,
+          "orientation": "horizontal",
+          "origHeight": 1080,
+          "origUrl": "https://cms.trypncl.com/39049/45c05ab8-b9a9-481d-ac2f-c3dc1a7b6ed5.webp",
+          "origWidth": 1920,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 0,
+          "top": 0,
+          "type": "image",
+          "url": "https://cms.trypncl.com/39049/45c05ab8-b9a9-481d-ac2f-c3dc1a7b6ed5.webp",
+          "version": "4.0",
+          "width": 1920
+        }
+      ],
+      "startFrame": 0,
+      "version": "v1",
+      "volume": 0
+    },
+    {
+      "canvasBgColor": "rgb(249, 249, 251)",
+      "durationInFrames": 110,
+      "endFrame": 495,
+      "id": "y3Gnx7DtTOJ63fXO7UwWQ",
+      "layers": [
+        {
+          "durationInFrames": 110,
+          "endFrame": 495,
+          "height": 1080,
+          "hidden": false,
+          "id": "_J0YOtgYmSsE3yAVQLsbx",
+          "layerNumber": 1,
+          "layerType": "video",
+          "left": 0,
+          "name": "002 16-9 EndFrame CTA 1920x1080-.mp4",
+          "opacity": 1,
+          "origHeight": 1080,
+          "origUrl": "https://cms.trypncl.com/39049/325cd70e-ccac-4852-a12d-3306c5e71689/WEBM/325cd70e-ccac-4852-a12d-3306c5e71689_webm.webm",
+          "origWidth": 1920,
+          "playbackRate": 1,
+          "rotate": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "startFrame": 386,
+          "thumbnailUrl": "",
+          "top": 0,
+          "type": "video",
+          "url": "https://cms.trypncl.com/39049/325cd70e-ccac-4852-a12d-3306c5e71689/WEBM/325cd70e-ccac-4852-a12d-3306c5e71689_webm.webm",
+          "version": "4.0",
+          "videoDurationInSecs": 2.546,
+          "videoEndTime": 76,
+          "videoStartTime": 0,
+          "volume": 0,
+          "width": 1920
+        }
+      ],
+      "startFrame": 386,
+      "version": "v1",
+      "volume": 0
+    }
+  ],
+  "version": "v1"
+}

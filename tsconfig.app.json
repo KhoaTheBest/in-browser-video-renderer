@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": ["./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@btg-pencil-ai/editor": ["../../editor/src/index.ts"],
+      "@brandVisualLook/*": ["../../editor/src/brandVisualLook/*"],
+      "@common/*": ["../../editor/src/common/*"],
+      "@data/*": ["../../editor/src/data/*"],
+      "@editor/*": ["../../editor/src/editor/*"],
+      "@modules/*": ["../../editor/src/modules/*"],
+      "@storage/*": ["../../editor/src/storage/*"],
+      "@store/*": ["../../editor/src/store/*"],
+      "@styles/*": ["../../editor/src/styles/*"],
+      "@svg-icons/*": ["../../editor/src/svg-icons/*"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}
