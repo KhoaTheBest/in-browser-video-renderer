@@ -1,4 +1,4 @@
-import type { VisualData } from '@btg-pencil-ai/editor';
+import type { VisualData } from '../types/editor';
 import mockVisualData from './mock-visual.json';
 
 // We cast it as VisualData. The JSON schema looks to be compatible with what the renderer needs,

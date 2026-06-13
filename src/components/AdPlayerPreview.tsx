@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Player, type PlayerRef } from '@remotion/player';
 import { CompositionWrapper } from './CompositionWrapper';
-import type { VisualData } from '@btg-pencil-ai/editor';
+import type { VisualData } from '../types/editor';
 
 type Props = {
   visualData: VisualData | null;

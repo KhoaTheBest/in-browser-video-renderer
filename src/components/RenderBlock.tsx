@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import type { VisualData } from '@btg-pencil-ai/editor';
+import type { VisualData } from '../types/editor';
 import { fetchVisualData, VisualDataResponse } from '../lib/fetchVisualData';
 import { AdPlayerPreview } from './AdPlayerPreview';
 import { VideoPlayback } from './VideoPlayback';

@@ -3,25 +3,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import type { Plugin } from 'vite';
-
-const editorRoot = path.resolve(
-  __dirname,
-  '../../editor.worktrees/mediabunny-video',
-);
-const editorSrc = path.resolve(editorRoot, 'src');
-
-const editorPathAliases: Record<string, string> = {
-  '@brandVisualLook': path.resolve(editorSrc, 'brandVisualLook'),
-  '@common': path.resolve(editorSrc, 'common'),
-  '@data': path.resolve(editorSrc, 'data'),
-  '@editor': path.resolve(editorSrc, 'editor'),
-  '@modules': path.resolve(editorSrc, 'modules'),
-  '@storage': path.resolve(editorSrc, 'storage'),
-  '@store': path.resolve(editorSrc, 'store'),
-  '@styles': path.resolve(editorSrc, 'styles'),
-  '@svg-icons': path.resolve(editorSrc, 'svg-icons'),
-};
-
 import https from 'node:https';
 import hostMapJson from './src/config/host-map.json';
 
@@ -106,36 +87,9 @@ function apiProxyPlugin(): Plugin {
   };
 }
 
-function editorDevResolvePlugin(): Plugin {
-  return {
-    name: 'editor-dev-resolve',
-    enforce: 'pre',
-    async resolveId(source, importer, options) {
-      if (source === '@modules' || source.startsWith('@modules/')) {
-        const target = editorPathAliases['@modules'];
-        const resolved = source.replace('@modules', target);
-        return this.resolve(resolved, importer, { skipSelf: true, ...options });
-      }
-      if (!importer || !importer.startsWith(editorSrc)) return null;
-      for (const [alias, target] of Object.entries(editorPathAliases)) {
-        if (alias === '@modules') continue;
-        if (source === alias || source.startsWith(alias + '/')) {
-          const resolved = source.replace(alias, target);
-          return this.resolve(resolved, importer, {
-            skipSelf: true,
-            ...options,
-          });
-        }
-      }
-      return null;
-    },
-  };
-}
-
 export default defineConfig({
   plugins: [
     apiProxyPlugin(),
-    editorDevResolvePlugin(),
     react(),
     svgr({
       svgrOptions: {
@@ -156,17 +110,11 @@ export default defineConfig({
       '@remotion/media',
       'jotai',
     ],
-    alias: {
-      '@btg-pencil-ai/editor': path.resolve(editorSrc, 'index.ts'),
-    },
   },
   server: {
     headers: {
       'Cross-Origin-Opener-Policy': 'same-origin',
       'Cross-Origin-Embedder-Policy': 'credentialless',
-    },
-    fs: {
-      allow: ['.', editorRoot],
     },
   },
   optimizeDeps: {

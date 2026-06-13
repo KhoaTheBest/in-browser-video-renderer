@@ -17,18 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "typeRoots": ["./node_modules/@types"],
     "baseUrl": ".",
-    "paths": {
-      "@btg-pencil-ai/editor": ["../../editor/src/index.ts"],
-      "@brandVisualLook/*": ["../../editor/src/brandVisualLook/*"],
-      "@common/*": ["../../editor/src/common/*"],
-      "@data/*": ["../../editor/src/data/*"],
-      "@editor/*": ["../../editor/src/editor/*"],
-      "@modules/*": ["../../editor/src/modules/*"],
-      "@storage/*": ["../../editor/src/storage/*"],
-      "@store/*": ["../../editor/src/store/*"],
-      "@styles/*": ["../../editor/src/styles/*"],
-      "@svg-icons/*": ["../../editor/src/svg-icons/*"]
-    }
+    "paths": {}
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src"]
 }
