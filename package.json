@@ -1,5 +1,5 @@
 {
-  "name": "remotion-client-render",
+  "name": "in-browser-video-renderer",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -1,82 +1,61 @@
-# Remotion Client-Side Rendering POC
+# In-Browser Video Renderer 🎬
 
-## Overview
+An innovative, serverless client-side video composition and rendering pipeline. This application executes dynamic media templates directly within the user's browser, compiling video frames using WebCodecs and converting the resulting WebM stream into an MP4 file with native AAC audio encoding—all without spinning up expensive cloud rendering nodes.
 
-This is a Proof of Concept for in-browser video rendering using `@remotion/web-renderer` and WebCodecs. It reuses the existing `Composition` component from `@btg-pencil-ai/editor` to render a visual project directly in the browser, converting the resulting WebM into an MP4 file using `mediabunny`.
+## 🚀 Key Features
 
-## How It Works
+- **Decentralized Rendering:** Eliminates server rendering queues and costs by shifting frame compilation to the client's local GPU and CPU.
+- **WebCodecs Compilation:** Generates fast, high-quality WebM video blobs in-browser via `@remotion/web-renderer` and WebCodecs (VP8/VP9/AV1).
+- **Client-Side Transcoding:** Transparently wraps `mediabunny` inside the browser to transcode raw WebM output into web-standard MP4 formats.
+- **Rich Interactive Preview:** Leverages `@remotion/player` for lightweight, hardware-accelerated preview of complex keyframe animations prior to compile.
+- **Local API Proxy:** Integrates a lightweight CORS bypass layer to securely fetch external assets, fonts, and project databases in a development environment.
 
-1. **Fetch Data**: The user provides a Work URL and JWT token. The application fetches the visual data for that creative via a local proxy that bypasses CORS.
-2. **Preview**: The fetched visual data is rendered using `@remotion/player` for preview.
-3. **Render**: When the user clicks "Render", the visual is rendered in-browser using `renderMediaOnWeb` (VP8/WebM via WebCodecs).
-4. **Convert**: The resulting WebM blob is converted to MP4 using `mediabunny` (with AAC audio encoding if needed).
-5. **Download**: The user can download the final `.mp4` file directly.
+## 🛠️ Execution Pipeline
 
-## Project Structure
+```mermaid
+sequenceDiagram
+    participant User as Browser Client
+    participant Proxy as Local CORS Proxy
+    participant Player as Remotion Player
+    participant Engine as WebCodecs (renderMediaOnWeb)
+    participant Bunny as Mediabunny Transcoder
 
-```text
-remotion-client-render/
-├── package.json              # Dependencies and scripts
-├── tsconfig.json             # TypeScript configuration
-├── vite.config.ts            # Vite config with editor resolve plugin & COOP/CORP headers
-├── src/
-    ├── App.tsx               # Main application layout
-    ├── components/
-    │   ├── CompositionWrapper.tsx  # Wraps the editor Composition with Jotai Provider
-    │   ├── CompositionPreview.tsx  # @remotion/player preview
-    │   ├── RenderPanel.tsx         # Inline rendering logic and progress
-    │   ├── RenderBlock.tsx         # Handles inputs, API fetching, and UI state
-    │   └── BrowserSupport.tsx      # WebCodecs support banner
-    └── lib/
-        ├── fetchVisualData.ts      # API proxy fetching
-        ├── renderVideo.ts          # Core renderMediaOnWeb and WebM->MP4 conversion logic
-        └── detectWebCodecs.ts      # Verifies VP8 VideoEncoder support
+    User->>Proxy: Request Project Schema (JSON + Assets)
+    Proxy->>User: Secure Payload (CORS-friendly)
+    User->>Player: Feed JSON Schema for Live Preview
+    User->>Engine: Initiate "Compile / Render" Command
+    Engine->>Engine: Generate Frame Buffers (VP8/WebM)
+    Engine->>User: Raw WebM Video Blob
+    User->>Bunny: Mount WebM + Audio Track
+    Bunny->>Bunny: Transcode to MP4 (h264 + AAC)
+    Bunny->>User: Downloadable MP4 File
 ```
 
-## Prerequisites
+## 📦 Tech Stack
 
-- **Node.js**: v18+ recommended
-- **Yarn**: package manager
-- **Browser**: Google Chrome or a Chromium-based browser with WebCodecs support.
-- **Editor Source**: The `@btg-pencil-ai/editor` source code must exist at `../../editor.worktrees/mediabunny-video` relative to this project root, as the Vite config resolves aliases into it.
+- **Video Engine:** `@remotion/web-renderer`, `@remotion/player`, `@remotion/media-utils`
+- **Transcoder:** `mediabunny` (with WebAssembly-based AAC encoders)
+- **Framework:** React 18, TypeScript, Vite
+- **State Engine:** Jotai
+- **Styling:** Tailwind CSS, PostCSS
 
-## Setup & Running
+## ⚙️ Setup & Installation
 
-1. **Install dependencies**:
+This project utilizes Cross-Origin Opener Policy (COOP) and Cross-Origin Embedder Policy (COEP) headers to enable high-performance SharedArrayBuffers required for in-browser video assembly.
 
-   ```bash
-   yarn install
-   ```
+```bash
+# Clone and enter directory
+git clone https://github.com/KhoaTheBest/in-browser-video-renderer.git
+cd in-browser-video-renderer
 
-2. **Start the development server**:
+# Install dependencies
+yarn install
 
-   ```bash
-   yarn dev
-   ```
+# Start local server with COOP/COEP headers
+yarn dev
+```
 
-   The dev server starts on `http://localhost:5173`.
+## 💡 Engineering Highlights & Optimizations
 
-3. **Build the project**:
-
-   ```bash
-   yarn build
-   ```
-
-4. **Typecheck**:
-   ```bash
-   yarn typecheck
-   ```
-   _Note: TypeScript typechecking is run separately from the Vite build because the editor's React types conflict with this project's React types. Vite transpiles everything fine._
-
-## Key Architecture Decisions
-
-- **Remotion Version**: `4.0.436` is used because `@remotion/web-renderer` does not exist in older versions like `4.0.295`.
-- **Editor Integration**: `vite.config.ts` has a custom `editorDevResolvePlugin` to resolve editor aliases (`@modules`, `@common`, etc.) directly from the local editor source. React, Remotion, and Jotai are deduped to prevent invalid hook calls.
-- **CORP/COOP Headers**: Added in Vite server config (`Cross-Origin-Opener-Policy: same-origin`, `Cross-Origin-Embedder-Policy: credentialless`) to enable `SharedArrayBuffer`, which is required by `@remotion/web-renderer`.
-- **CompositionWrapper Props**: The `Composition` component is initialized with props like `isMainPlayer={false}` and `isDisableTextBox={true}` to prevent it from depending on `EnterpriseEditorContext` or the Lexical editor.
-- **Jotai Provider**: A local Jotai `<Provider>` wraps the component to isolate its state, as inner layers (like `SceneItem`) depend on Jotai atoms.
-
-## Browser Requirements
-
-- WebCodecs (`VideoEncoder`) support with `vp8` profile.
-- `SharedArrayBuffer` support (enabled via the COOP/CORP headers configured in Vite).
+- **High-Performance Memory Buffers:** Configured custom Vite servers with strict COOP/COEP headers, unlocking modern browser memory performance allowing seamless frame buffering.
+- **Hardware-Accelerated Encoding:** Detects host WebCodecs support and falls back to progressive canvas-frame captures if high-performance profiles are unavailable.
