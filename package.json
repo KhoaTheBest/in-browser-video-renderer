@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mediabunny/aac-encoder": "^1.39.2",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
     "@remotion/gif": "4.0.436",
     "@remotion/media": "4.0.436",
     "@remotion/media-utils": "4.0.436",
@@ -20,7 +21,6 @@
     "@remotion/web-renderer": "4.0.436",
     "jotai": "^2.6.0",
     "lodash": "^4.17.21",
-    "mediabunny": "^1.39.2",
     "nanoid": "^3.3.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",

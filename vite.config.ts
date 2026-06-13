@@ -155,8 +155,6 @@ export default defineConfig({
       '@remotion/player',
       '@remotion/media',
       'jotai',
-      'mediabunny',
-      '@mediabunny/aac-encoder',
     ],
     alias: {
       '@btg-pencil-ai/editor': path.resolve(editorSrc, 'index.ts'),
