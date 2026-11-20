@@ -13,7 +13,10 @@ import { FileInput } from '@astryxdesign/core/FileInput';
 import { templates } from '../data/templates';
 import { fetchVisualData, parseVisualJson, type ImportedVisual } from '../lib/fetchVisualData';
 import { detectWebCodecsSupport } from '../lib/detectWebCodecs';
-import { exportVideo } from '../engine/exportVideo';
+import { usePlan } from '../billing/usePlan';
+import { checkExport, drawWatermark } from '../billing/plans';
+import { exportsToday, recordExport } from '../billing/usage';
+import { Link } from '@astryxdesign/core/Link';
 import { ExportPanel, type ExportState } from './ExportPanel';
 import { ErrorBoundary } from './ErrorBoundary';
 import { PreviewPanel } from './PreviewPanel';
@@ -38,6 +41,8 @@ export function ProjectBlock({ blockId }: { blockId: string }) {
   const [blob, setBlob] = useState<Blob | null>(null);
   const [exportError, setExportError] = useState('');
   const [durationMs, setDurationMs] = useState<number>();
+  const [limitMessage, setLimitMessage] = useState('');
+  const plan = usePlan();
   const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
@@ -65,6 +70,7 @@ export function ProjectBlock({ blockId }: { blockId: string }) {
 
   const reset = useCallback(() => {
     abortRef.current?.abort();
+    setLimitMessage('');
     setState('idle'); setProgress(0); setBlob(null); setExportError(''); setDurationMs(undefined);
   }, []);
   useEffect(reset, [reset, selectedId]);
@@ -81,6 +87,9 @@ export function ProjectBlock({ blockId }: { blockId: string }) {
 
   const handleExport = async () => {
     if (!visual) return;
+    const check = checkExport(plan, visual, exportsToday());
+    if (!check.ok) { setLimitMessage(check.message); return; }
+    setLimitMessage('');
     const support = await detectWebCodecsSupport();
     if (!support.supported) { setState('error'); setExportError(support.details); return; }
     abortRef.current?.abort();
@@ -88,8 +97,10 @@ export function ProjectBlock({ blockId }: { blockId: string }) {
     abortRef.current = ac;
     setState('rendering'); setProgress(0); setExportError('');
     try {
-      const res = await exportVideo({ visual, signal: ac.signal, onProgress: (p) => !ac.signal.aborted && setProgress(p.percentage) });
+      const { exportVideo } = await import('../engine/exportVideo');
+      const res = await exportVideo({ visual, signal: ac.signal, scale: check.scale, overlay: plan.watermark ? drawWatermark : undefined, onProgress: (p) => !ac.signal.aborted && setProgress(p.percentage) });
       if (ac.signal.aborted) return;
+      recordExport();
       setBlob(res.blob); setDurationMs(res.durationMs); setState('done');
     } catch (err) {
       if (ac.signal.aborted) return;
@@ -123,6 +134,10 @@ export function ProjectBlock({ blockId }: { blockId: string }) {
           </VStack>
         </Grid>
 
+        {limitMessage && (
+          <Banner status="info" title="Pro limit reached" description={limitMessage}
+            endContent={<Link href="/pricing" isStandalone>See Pro</Link>} />
+        )}
         <HStack gap={3}>
           {state === 'rendering' ? (
             <Button label="Cancel" variant="secondary" onClick={reset} />

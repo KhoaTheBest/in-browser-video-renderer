@@ -22,12 +22,17 @@ export type ExportOptions = {
   signal?: AbortSignal;
   /** Painted over every frame after the scene (e.g. a free-tier watermark). */
   overlay?: (ctx: OffscreenCanvasRenderingContext2D, width: number, height: number) => void;
+  /** Scale output resolution (0 < scale <= 1). Dimensions are rounded to even numbers for encoders. */
+  scale?: number;
 };
 
+const even = (n: number) => Math.max(2, Math.round(n / 2) * 2);
+
 /** Renders the visual to an MP4 entirely in the browser: canvas -> WebCodecs -> mediabunny. */
-export async function exportVideo({ visual, onProgress, signal, overlay }: ExportOptions): Promise<ExportResult> {
+export async function exportVideo({ visual, onProgress, signal, overlay, scale = 1 }: ExportOptions): Promise<ExportResult> {
   const started = performance.now();
-  const { width, height } = visual.dimensions;
+  const width = even(visual.dimensions.width * scale);
+  const height = even(visual.dimensions.height * scale);
   const { fps, durationInFrames: total } = visual;
   const abortError = () => new DOMException('Render cancelled', 'AbortError');
   if (signal?.aborted) throw abortError();
@@ -70,7 +75,7 @@ export async function exportVideo({ visual, onProgress, signal, overlay }: Expor
         await output.cancel();
         throw abortError();
       }
-      await drawFrame(ctx, visual, frame, assets);
+      await drawFrame(ctx, visual, frame, assets, width / visual.dimensions.width);
       overlay?.(ctx, width, height);
       await videoSource.add(frame / fps, 1 / fps);
       onProgress?.({ percentage: (frame + 1) / total, renderedFrames: frame + 1, totalFrames: total });

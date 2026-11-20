@@ -47,9 +47,11 @@ export async function drawFrame(
   visual: VisualData,
   frame: number,
   assets: FrameAssets,
+  /** Output scale relative to the visual's own dimensions (e.g. 0.667 for a 720p cap). */
+  scale = 1,
 ): Promise<void> {
   const { width, height } = visual.dimensions;
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
   ctx.globalAlpha = 1;
   ctx.fillStyle = '#000000';
   ctx.fillRect(0, 0, width, height);
