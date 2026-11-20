@@ -1,32 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Banner } from '@astryxdesign/core/Banner';
 import { detectWebCodecsSupport, type WebCodecsSupport } from '../lib/detectWebCodecs';
 
-export const BrowserSupport: React.FC = () => {
+/** Shows nothing while support is fine; warns when exports cannot work. */
+export function BrowserSupport() {
   const [support, setSupport] = useState<WebCodecsSupport | null>(null);
-
   useEffect(() => {
-    detectWebCodecsSupport().then(setSupport);
+    void detectWebCodecsSupport().then(setSupport);
   }, []);
-
-  if (!support) {
-    return (
-      <div className="rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-sm text-slate-400">
-        Checking WebCodecs support...
-      </div>
-    );
-  }
-
-  if (support.supported) {
-    return (
-      <div className="rounded-lg border border-emerald-700/50 bg-emerald-950/50 px-4 py-3 text-sm text-emerald-400">
-        WebCodecs ready — {support.details}
-      </div>
-    );
-  }
-
+  if (!support || support.supported) return null;
   return (
-    <div className="rounded-lg border border-amber-700/50 bg-amber-950/50 px-4 py-3 text-sm text-amber-400">
-      WebCodecs not available — {support.details}. Use Chrome 94+ for rendering.
-    </div>
+    <Banner
+      status="warning"
+      title="Exporting is not available in this browser"
+      description={`${support.details} Use a recent Chrome, Edge or Safari on desktop. You can still preview.`}
+    />
   );
-};
+}

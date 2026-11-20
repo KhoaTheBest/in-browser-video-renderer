@@ -1,77 +1,55 @@
-export interface VisualDataResponse {
-  items: Array<{
-    visual_data_id: string;
-    visual_json: unknown;
-    dimension_id: number;
-    work_id: string;
-    work_version_id: string;
-    thumbnail_file_info: {
-      url: string;
-    };
-    hash: string;
-    metadata: Record<string, any>;
-  }>;
-  meta: {
-    count: number;
+import type { VisualData } from '../types/visual';
+import { isRenderable } from '../engine/timeline';
+
+export type ImportedVisual = { id: string; label: string; visual: VisualData };
+
+function toVisuals(data: unknown): ImportedVisual[] {
+  const out: ImportedVisual[] = [];
+  const add = (raw: unknown, id: string) => {
+    const v = typeof raw === 'string' ? (JSON.parse(raw) as unknown) : raw;
+    if (isRenderable(v as Partial<VisualData>)) {
+      const d = (v as VisualData).dimensions;
+      out.push({ id, label: `${d.width}×${d.height} (${id.slice(0, 8)})`, visual: v as VisualData });
+    }
   };
+  const obj = data as { items?: Array<{ visual_data_id?: string; visual_json?: unknown }> };
+  if (Array.isArray(obj?.items)) {
+    obj.items.forEach((it, i) => add(it.visual_json, it.visual_data_id ?? `item-${i}`));
+  } else {
+    add(data, 'imported');
+  }
+  return out;
 }
 
-export async function fetchVisualData(
-  workUrl: string,
-  jwt: string,
-): Promise<VisualDataResponse> {
-  // Parse the work URL: https://<DOMAIN>/.../work/creative?workId=<WORK_ID>
-  let urlObj;
+/** Parses pasted/uploaded JSON text into renderable visuals. Throws a friendly error otherwise. */
+export function parseVisualJson(text: string): ImportedVisual[] {
+  let data: unknown;
   try {
-    urlObj = new URL(workUrl);
-  } catch (e) {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error('That is not valid JSON.');
+  }
+  const visuals = toVisuals(data);
+  if (visuals.length === 0) {
+    throw new Error('No renderable visual found. Expected fps, durationInFrames, dimensions and scenes.');
+  }
+  return visuals;
+}
+
+/** Advanced: fetches visual JSON straight from a URL (the host must allow CORS). */
+export async function fetchVisualData(url: string, token?: string): Promise<ImportedVisual[]> {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
     throw new Error('Invalid URL format');
   }
-
-  const workId = urlObj.searchParams.get('workId');
-  if (!workId) {
-    throw new Error('No workId found in URL search params');
+  let res: Response;
+  try {
+    res = await fetch(parsed, { headers: token ? { Authorization: `Bearer ${token}` } : undefined });
+  } catch {
+    throw new Error('Request failed. The server may be unreachable or may not allow cross-origin (CORS) requests.');
   }
-
-  const domain = urlObj.origin; // e.g. https://stg.trypncl.com
-  const targetApiUrl = `${domain}/api/work-proxy/v1/visual_data?work_id=${workId}`;
-
-  // Call through our local proxy to avoid CORS
-  const proxyUrl = `/api-proxy?url=${encodeURIComponent(targetApiUrl)}`;
-
-  const response = await fetch(proxyUrl, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (!response.ok) {
-    let errorText = '';
-    try {
-      const errorJson = await response.json();
-      errorText = JSON.stringify(errorJson);
-    } catch (e) {
-      errorText = await response.text();
-    }
-    throw new Error(`API Error (${response.status}): ${errorText}`);
-  }
-
-  const data = await response.json();
-
-  // If visual_json is a string, parse it
-  if (data.items && Array.isArray(data.items)) {
-    for (const item of data.items) {
-      if (typeof item.visual_json === 'string') {
-        try {
-          item.visual_json = JSON.parse(item.visual_json);
-        } catch (e) {
-          console.error('Failed to parse visual_json string', e);
-        }
-      }
-    }
-  }
-
-  return data as VisualDataResponse;
+  if (!res.ok) throw new Error(`Request failed with HTTP ${res.status}.`);
+  return parseVisualJson(await res.text());
 }

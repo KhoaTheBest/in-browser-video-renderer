@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
+    
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
@@ -15,9 +15,9 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["./node_modules/@types"],
-    "baseUrl": ".",
-    "paths": {}
+    
+    
+    
   },
-  "include": ["src"]
+  "include": ["src", "functions"]
 }

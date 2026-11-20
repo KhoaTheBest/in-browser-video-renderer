@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Remotion Client Render POC</title>
+    <title>Render in Browser: private in-browser video maker</title>
+    <meta name="description" content="Compose scenes, preview instantly and export MP4 on your own device. No uploads, no render queue. Free to start." />
+    <link rel="canonical" href="https://video-renderer.khoalt.dev/" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Render in Browser" />
+    <meta property="og:description" content="Make videos in your browser. Private, fast, no render farm." />
+    <meta property="og:url" content="https://video-renderer.khoalt.dev/" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Render in Browser","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>Render in Browser needs JavaScript to compose and export video in your browser.</noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

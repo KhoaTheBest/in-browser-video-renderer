@@ -1,61 +1,46 @@
-# In-Browser Video Renderer 🎬
+# Render in Browser
 
-An innovative, serverless client-side video composition and rendering pipeline. This application executes dynamic media templates directly within the user's browser, compiling video frames using WebCodecs and converting the resulting WebM stream into an MP4 file with native AAC audio encoding—all without spinning up expensive cloud rendering nodes.
+Compose scenes, preview instantly and export MP4 on your own device. Rendering uses canvas and WebCodecs, so there is no render server and no upload. Live site: https://video-renderer.khoalt.dev
 
-## 🚀 Key Features
+## How it works
 
-- **Decentralized Rendering:** Eliminates server rendering queues and costs by shifting frame compilation to the client's local GPU and CPU.
-- **WebCodecs Compilation:** Generates fast, high-quality WebM video blobs in-browser via `@remotion/web-renderer` and WebCodecs (VP8/VP9/AV1).
-- **Client-Side Transcoding:** Transparently wraps `mediabunny` inside the browser to transcode raw WebM output into web-standard MP4 formats.
-- **Rich Interactive Preview:** Leverages `@remotion/player` for lightweight, hardware-accelerated preview of complex keyframe animations prior to compile.
-- **Local API Proxy:** Integrates a lightweight CORS bypass layer to securely fetch external assets, fonts, and project databases in a development environment.
-
-## 🛠️ Execution Pipeline
-
-```mermaid
-sequenceDiagram
-    participant User as Browser Client
-    participant Proxy as Local CORS Proxy
-    participant Player as Remotion Player
-    participant Engine as WebCodecs (renderMediaOnWeb)
-    participant Bunny as Mediabunny Transcoder
-
-    User->>Proxy: Request Project Schema (JSON + Assets)
-    Proxy->>User: Secure Payload (CORS-friendly)
-    User->>Player: Feed JSON Schema for Live Preview
-    User->>Engine: Initiate "Compile / Render" Command
-    Engine->>Engine: Generate Frame Buffers (VP8/WebM)
-    Engine->>User: Raw WebM Video Blob
-    User->>Bunny: Mount WebM + Audio Track
-    Bunny->>Bunny: Transcode to MP4 (h264 + AAC)
-    Bunny->>User: Downloadable MP4 File
+```
+visual JSON -> canvas scene renderer -> WebCodecs encoder -> mediabunny MP4 mux (+ mixed audio) -> download
 ```
 
-## 📦 Tech Stack
+- **Scene model:** `fps`, `durationInFrames`, `dimensions`, `scenes[]` with `video | image | shape | text` layers, plus global and multi-track audio (`src/types/visual.ts`).
+- **Preview:** `usePreviewPlayer` draws frames to a canvas and plays the mixed audio with Web Audio.
+- **Export:** `exportVideo` draws each frame, encodes it with the best available codec (H.264, else VP9/VP8) and the best audio codec (AAC, else Opus), and muxes MP4 with [mediabunny](https://mediabunny.dev) (MPL-2.0).
+- **Plans:** Free (720p-class, 15 s, 3 exports/day, watermark) and Pro (1080p, 3 min, unlimited, no watermark). Limits are enforced in the client; a Pro license key is validated by `functions/api/license.ts` against Lemon Squeezy.
 
-- **Video Engine:** `@remotion/web-renderer`, `@remotion/player`, `@remotion/media-utils`
-- **Transcoder:** `mediabunny` (with WebAssembly-based AAC encoders)
-- **Framework:** React 18, TypeScript, Vite
-- **State Engine:** Jotai
-- **Styling:** Tailwind CSS, PostCSS
-
-## ⚙️ Setup & Installation
-
-This project utilizes Cross-Origin Opener Policy (COOP) and Cross-Origin Embedder Policy (COEP) headers to enable high-performance SharedArrayBuffers required for in-browser video assembly.
+## Develop
 
 ```bash
-# Clone and enter directory
-git clone https://github.com/KhoaTheBest/in-browser-video-renderer.git
-cd in-browser-video-renderer
-
-# Install dependencies
+. ~/.nvm/nvm.sh        # if Node is under nvm
 yarn install
-
-# Start local server with COOP/COEP headers
+cp .env.example .env   # optional; checkout links, support email, analytics token
 yarn dev
+yarn typecheck && yarn test && yarn build
 ```
 
-## 💡 Engineering Highlights & Optimizations
+To try the license function locally, run the built site with Wrangler (`wrangler pages dev dist`) and put `LS_STORE_ID` / `LS_PRODUCT_ID` in `.dev.vars` (git-ignored).
 
-- **High-Performance Memory Buffers:** Configured custom Vite servers with strict COOP/COEP headers, unlocking modern browser memory performance allowing seamless frame buffering.
-- **Hardware-Accelerated Encoding:** Detects host WebCodecs support and falls back to progressive canvas-frame captures if high-performance profiles are unavailable.
+## Configuration
+
+See `.env.example`. Frontend variables are `VITE_*` (public). `LS_STORE_ID` and `LS_PRODUCT_ID` are Pages Function variables.
+
+## Deploy (Cloudflare Pages)
+
+Build command `yarn build`, output `dist`. `public/_redirects` provides the SPA fallback and `public/_headers` sets security headers. Set the variables above in Pages settings.
+
+## Testing
+
+`yarn test` covers the timeline, import parsing, plan limits and the license function. The export pipeline needs a real browser with WebCodecs and has been type-checked and built but not yet exercised end to end in CI; run a manual export of both templates in Chrome before releasing.
+
+## Browser support
+
+Desktop Chrome, Edge and Safari with WebCodecs. Firefox depends on its encoder support. The Studio shows a warning when exporting is not possible.
+
+## Licences
+
+Application code: see repository owner. Key dependencies: React (MIT), Astryx (MIT), mediabunny (MPL-2.0), Vite (MIT). Review `yarn licenses list` before releases.
